@@ -11,16 +11,16 @@
     <!--CHAINS - When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS - Groups can also be formed by referencing to already defined group names-->
     <group name="${prefix}${name}_manipulator">
-      <chain base_link="${prefix}base_link" tip_link="${prefix}tool0" />
+      <chain base_link="${prefix}base_link" tip_link="${prefix}paintgun_marker" />
     </group>
     <!--GROUP STATES - Purpose - Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="${prefix}home" group="${prefix}${name}_manipulator">
-      <joint name="${prefix}elbow_joint" value="0" />
-      <joint name="${prefix}shoulder_lift_joint" value="-1.5707" />
-      <joint name="${prefix}shoulder_pan_joint" value="0" />
-      <joint name="${prefix}wrist_1_joint" value="0" />
-      <joint name="${prefix}wrist_2_joint" value="0" />
-      <joint name="${prefix}wrist_3_joint" value="0" />
+      <joint name="${prefix}elbow_joint" value="2.35" />
+      <joint name="${prefix}shoulder_lift_joint" value="-1.43" />
+      <joint name="${prefix}shoulder_pan_joint" value="0.16" />
+      <joint name="${prefix}wrist_1_joint" value="-3.51" />
+      <joint name="${prefix}wrist_2_joint" value="-3.05" />
+      <joint name="${prefix}wrist_3_joint" value="0.57" />
     </group_state>
     <group_state name="${prefix}up" group="${prefix}${name}_manipulator">
       <joint name="${prefix}elbow_joint" value="0" />
@@ -52,6 +52,14 @@
     <disable_collisions link1="${prefix}wrist_1_link" link2="${prefix}wrist_2_link" reason="Adjacent" />
     <disable_collisions link1="${prefix}wrist_1_link" link2="${prefix}wrist_3_link" reason="Never" />
     <disable_collisions link1="${prefix}wrist_2_link" link2="${prefix}wrist_3_link" reason="Adjacent" />
+    
+    <disable_collisions link1="${prefix}wrist_3_link" link2="${prefix}paintgun_base" reason="Adjacent" />
+    <disable_collisions link1="${prefix}tool0" link2="${prefix}paintgun_base" reason="Adjacent" />
+    <disable_collisions link1="${prefix}paintgun_base" link2="${prefix}paintgun_handle" reason="Adjacent" />
+    <disable_collisions link1="${prefix}paintgun_handle" link2="${prefix}paintgun_marker" reason="Adjacent" />
+    <disable_collisions link1="${prefix}paintgun_handle" link2="${prefix}paintgun_tcp" reason="Adjacent" />
+    <disable_collisions link1="${prefix}ur_table" link2="${prefix}base_link" reason="Adjacent" />
+    <disable_collisions link1="${prefix}ur_table" link2="${prefix}base_link_inertia" reason="Adjacent" />
 
   </xacro:macro>
 </robot>
