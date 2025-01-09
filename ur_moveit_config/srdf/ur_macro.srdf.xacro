@@ -17,7 +17,7 @@
     <group_state name="${prefix}home" group="${prefix}${name}_manipulator">
       <joint name="${prefix}elbow_joint" value="2.35" />
       <joint name="${prefix}shoulder_lift_joint" value="-1.43" />
-      <joint name="${prefix}shoulder_pan_joint" value="0.16" />
+      <joint name="${prefix}shoulder_pan_joint" value="1.73" />
       <joint name="${prefix}wrist_1_joint" value="-3.51" />
       <joint name="${prefix}wrist_2_joint" value="-3.05" />
       <joint name="${prefix}wrist_3_joint" value="0.57" />
